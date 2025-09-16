@@ -1,0 +1,36 @@
+{
+  "name": "api-biblioteca",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "csv-stringify": "^6.6.0",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "file-saver": "^2.0.5",
+    "flowbite": "^3.1.2",
+    "flowbite-react": "^0.12.7",
+    "jsonwebtoken": "^9.0.2",
+    "jspdf": "^3.0.1",
+    "ldapjs": "^3.0.7",
+    "multer": "^1.4.5-lts.2",
+    "mysql2": "^3.14.1",
+    "nodemailer": "^7.0.5",
+    "passport": "^0.7.0",
+    "passport-ldapauth": "^3.0.1",
+    "passport-local": "^1.0.0",
+    "pdfkit": "^0.17.1",
+    "puppeteer": "^24.16.2"
+  }
+}
