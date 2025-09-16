@@ -5,31 +5,25 @@ const pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: '', 
-    database: 'zelos', 
+    database: '', //colocar o nome 
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
 });
 
-// Função assíncrona que obtém uma conexão do pool.
-// Essa conexão é usada para executar as queries SQL.
-async function getConnection() {
-    return pool.getConnection();
-}
+async function getConnection() {return pool.getConnection();}
 
 // Função para ler todos os registros
 async function readAll(table, where = null) {
     const connection = await getConnection();
     try {
         let sql = `SELECT * FROM ${table}`;
-        if (where) {
-            sql += ` WHERE ${where}`;
-        }
+        if (where) { sql += ` WHERE ${where}`; }
+
         const [rows] = await connection.execute(sql);
         return rows;
-    } finally {
-        connection.release();
     }
+    finally { connection.release();}
 }
 
 // Função para ler um registro específico
@@ -37,14 +31,12 @@ async function read(table, where) {
     const connection = await getConnection();
     try {
         let sql = `SELECT * FROM ${table}`;
-        if (where) {
-            sql += ` WHERE ${where}`;
-        }
+        if (where) {sql += ` WHERE ${where}`;}
+
         const [rows] = await connection.execute(sql);
         return rows[0] || null;
-    } finally {
-        connection.release();
     }
+    finally { connection.release();}
 }
 
 // Função para inserir um novo registro
@@ -70,10 +62,8 @@ async function create(table, data) {
 
         // Retorna o ID do registro inserido
         return result.insertId;
-    } finally {
-        // Libera a conexão com o banco de dados
-        connection.release();
     }
+    finally {connection.release(); }
 }
 
 // Função para atualizar um registro
@@ -89,9 +79,8 @@ async function update(table, data, where) {
 
         const [result] = await connection.execute(sql, [...values]);
         return result.affectedRows;
-    } finally {
-        connection.release();
     }
+    finally { connection.release();}
 }
 
 // Função para excluir um registro
@@ -101,9 +90,8 @@ async function deleteRecord(table, where) {
         const sql = `DELETE FROM ${table} WHERE ${where}`;
         const [result] = await connection.execute(sql);
         return result.affectedRows;
-    } finally {
-        connection.release();
     }
+    finally { connection.release();}
 }
 
 async function compare(senha, hash) {
@@ -125,9 +113,8 @@ async function readQuery(query, values = []) {
     } catch (err) {
         console.error('Erro ao executar query: ', err);
         throw err;
-    } finally {
-        connection.release();
     }
+    finally { connection.release();}
 }
 
 export { create, readAll, read, update, deleteRecord, compare, readQuery };

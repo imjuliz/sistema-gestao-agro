@@ -1,9 +1,5 @@
 @import "tailwindcss";
 @import "flowbite/src/themes/default";
-/* @plugin "flowbite/plugin";
-@source "../node_modules/flowbite";
-@plugin "flowbite-react/plugin/tailwindcss";
-@source "../../.flowbite-react/class-list.json"; */
 
 /* fontes */
 .poppins-regular {
@@ -39,7 +35,6 @@
 /* fontes */
 @font-face {
   font-family: 'Plus Jakarta Sans Bold';
-  /* src: url('../components/Fonts/PlusJakartaSans-Bold.ttf') format('truetype'); */
   src: url('../components/Fonts/PlusJakartaSans-Bold.ttf') format('truetype');
 }
 
@@ -55,7 +50,6 @@
 
 @font-face {
   font-family: 'Plus Jakarta Sans Regular';
-  /* src: url('../components/Fonts/PlusJakartaSans-Regular.ttf') format('truetype'); */
   src: url('../components/Fonts/PlusJakartaSans-Regular.ttf') format('truetype');
 }
 
@@ -86,14 +80,10 @@
 .toast-card { will-change: transform, opacity; }
 
 input[type="password"]::-ms-reveal,
-input[type="password"]::-ms-clear {
-  display: none;
-}
+input[type="password"]::-ms-clear {display: none;}
 
 input[type="password"]::-webkit-credentials-auto-fill-button,
-input[type="password"]::-webkit-reveal {
-  display: none;
-}
+input[type="password"]::-webkit-reveal {display: none;}
 
 
 /* cores */

@@ -1,29 +1,4 @@
-// //config/ldap.js
-// import passport from 'passport';
-// import LdapStrategy from 'passport-ldapauth';
-
-// const ldapOptions = {
-//   server: {
-//     url: 'ldap://10.189.87.7:389',
-//     bindDN: 'cn=script,ou=Funcionarios,ou=Usuarios123,dc=educ123,dc=sp,dc=senai,dc=br',
-//     bindCredentials: '7GFGOy4ATCiqW9c86eStgCe0RA9BgA',
-//     searchBase: 'ou=Alunos,ou=Usuarios123,dc=educ123,dc=sp,dc=senai,dc=br',
-//     searchFilter: '(sAMAccountName={{username}})'
-//   }};
-
-// passport.use(new LdapStrategy(ldapOptions, (user, done) => {
-//   if (!user) {
-//     return done(null, false, { message: 'Usuário não encontrado' });
-//   }
-//   return done(null, user);}));
-
-// passport.serializeUser((user, done) => { done(null, user);});
-
-// passport.deserializeUser((user, done) => { done(null, user);});
-
-// export default passport;
-
-
+//ler o arquivo antes de utilizar ele. Tem muita coisa do outro projeto
 import passport from "passport";
 import { Strategy as LocalStrategy } from "passport-local";
 import LdapStrategy from "passport-ldapauth";
@@ -46,13 +21,7 @@ async function ensureUserInDatabase(user) {
   if (existingUsers.length === 0) {
     try {
       const insertId = await create("usuarios", {
-        nome,
-        senha,
-        username,
-        email,
-        funcao,
-        status_usuarios: "ativo"
-      });
+        nome, senha, username, email, funcao, status_usuarios: "ativo"});
       return { id: insertId, nome, username, funcao };
     } catch (err) {
       if (err.code === "ER_DUP_ENTRY") {
@@ -97,9 +66,7 @@ passport.use(
       if (!user) return done(null, false, { message: "Usuário LDAP não encontrado" });
       const usuarioFinal = await ensureUserInDatabase(user);
       return done(null, usuarioFinal);
-    } catch (err) {
-      return done(err);
-    }
+    } catch (err) { return done(err);}
   })
 );
 
@@ -121,15 +88,8 @@ passport.use(
         if (!senhaValida) return done(null, false, { message: "Senha incorreta" });
         if (user.status_usuarios !== "ativo") return done(null, false, { message: "Usuário inativo" });
 
-        return done(null, {
-          id: user.id,
-          nome: user.nome,
-          username: user.username,
-          funcao: user.funcao
-        });
-      } catch (err) {
-        return done(err);
-      }
+        return done(null,{id: user.id, nome: user.nome, username: user.username, funcao: user.funcao });
+      } catch (err) { return done(err);}
     }
   )
 );
@@ -146,15 +106,9 @@ passport.deserializeUser(async (id, done) => {
     if (!Array.isArray(result)) result = [result];
     const user = result[0];
 
-    done(null, {
-      id: user.id,
-      nome: user.nome,
-      username: user.username,
-      funcao: user.funcao
-    });
-  } catch (err) {
-    done(err, null);
+    done(null, { id: user.id, nome: user.nome, username: user.username, funcao: user.funcao});
   }
+  catch (err) { done(err, null);}
 });
 
 export default passport;

@@ -16,27 +16,18 @@ const porta = process.env.PORT || 8080;
 
 // 3. Middlewares essenciais com tratamento de erros
 try {
-  app.use(cors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:3000',
-    credentials: true
-  }));
+  app.use(cors({origin: process.env.FRONTEND_URL || 'http://localhost:3000', credentials:true }));
   app.use(express.json());
   
   app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
   saveUninitialized: false,
-  cookie: {
-    secure: false,
-    sameSite: 'lax',
-    httpOnly: true
-  }
+  cookie: { secure: false, sameSite: 'lax', httpOnly: true}
   }));
 
   // 4. Inicialização segura do Passport
-  if (!passport) {
-    throw new Error('Passport não foi importado corretamente');
-  }
+  if (!passport) { throw new Error('Passport não foi importado corretamente');}
   app.use(passport.initialize());
   app.use(passport.session());
 
@@ -49,32 +40,21 @@ try {
 app.use('/auth', authRotas);
 app.use('/', appRoutes);
 
-app.get('/health', (req, res) => {
-  res.status(200).json({ status: 'online' });
-});
+app.get('/health', (req, res) => { res.status(200).json({ status: 'online' });});
 
 app.use('/uploads', express.static(path.resolve('uploads')));
 
 // 6. Tratamento de erros robusto
-process.on('unhandledRejection', (reason, promise) => {
-  console.error('Rejeição não tratada em:', promise, 'motivo:', reason);
-});
+process.on('unhandledRejection',(reason, promise) =>{console.error('Rejeição não tratada em:',promise,'motivo:', reason);});
 
-process.on('uncaughtException', (err) => {
-  console.error('Exceção não capturada:', err);
-  process.exit(1);
-});
+process.on('uncaughtException', (err) => {console.error('Exceção não capturada:',err); process.exit(1);});
 
 // 7. Inicialização do servidor com verificação
 const server = app.listen(porta, () => {
   console.log(`Servidor rodando na porta ${porta}`);
-}).on('error', (err) => {
-  console.error('Erro ao iniciar:', err);
-});
+}).on('error', (err) => {console.error('Erro ao iniciar:', err);});
 
 // 8. Encerramento elegante
 process.on('SIGTERM', () => {
-  server.close(() => {
-    console.log('Servidor encerrado');
-  });
+  server.close(() => {console.log('Servidor encerrado');});
 });
