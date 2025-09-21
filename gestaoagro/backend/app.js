@@ -34,6 +34,10 @@ app.use(session({
 app.use('/auth', authRotas);
 app.use('/', appRoutes);
 
+app.get('/', (req, res) => {
+  res.json({ message: 'Backend online!' });
+});
+
 app.get('/health', (req, res) => res.status(200).json({ status: 'online' }));
 
 app.use('/uploads', express.static(path.resolve('uploads')));
