@@ -4,6 +4,7 @@ import session from 'express-session';
 import dotenv from 'dotenv';
 import path from 'path';
 import { createClient } from '@supabase/supabase-js';
+import serverless from 'serverless-http';
 
 import authRotas from './routes/authRotas.js';
 import appRoutes from './routes/appRoutes.js';
@@ -61,7 +62,9 @@ app.get('/health', (req, res) => res.status(200).json({ status: 'online' }));
 app.use('/uploads', express.static(path.resolve('uploads')));
 
 // exporta o app para o Vercel
-export default app;
+// export default app;
+const handler = serverless(app);
+export default handler;
 // // 6. Tratamento de erros robusto
 // process.on('unhandledRejection', (reason, promise) => {
 //   console.error('Rejeição não tratada em:', promise, 'motivo:', reason);
