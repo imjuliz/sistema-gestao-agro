@@ -4,7 +4,7 @@ import session from 'express-session';
 import dotenv from 'dotenv';
 import path from 'path';
 import { createClient } from '@supabase/supabase-js';
-import pgSession from 'connect-pg-simple';
+import connectPgSimple from 'connect-pg-simple';
 
 import authRotas from './routes/authRotas.js';
 import appRoutes from './routes/appRoutes.js';
@@ -25,14 +25,20 @@ app.use(cors({
 
 app.use(express.json());
 
+const PgSession = connectPgSimple(session);
+
 app.use(session({
-  store: new pgSession({
-    conString: process.env.DATABASE_URL, // seu Supabase PostgreSQL
+  store: new PgSession({
+    conString: process.env.DATABASE_URL,
   }),
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: true, sameSite: 'lax', httpOnly: true }
+  cookie: { 
+    secure: process.env.NODE_ENV === 'production', // em dev use false
+    sameSite: 'lax', 
+    httpOnly: true 
+  }
 }));
 
 
