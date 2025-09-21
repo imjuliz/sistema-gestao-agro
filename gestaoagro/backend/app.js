@@ -60,24 +60,26 @@ app.get('/health', (req, res) => res.status(200).json({ status: 'online' }));
 
 app.use('/uploads', express.static(path.resolve('uploads')));
 
-// 6. Tratamento de erros robusto
-process.on('unhandledRejection', (reason, promise) => {
-  console.error('Rejeição não tratada em:', promise, 'motivo:', reason);
-});
+// exporta o app para o Vercel
+export default app;
+// // 6. Tratamento de erros robusto
+// process.on('unhandledRejection', (reason, promise) => {
+//   console.error('Rejeição não tratada em:', promise, 'motivo:', reason);
+// });
 
-process.on('uncaughtException', (err) => {
-  console.error('Exceção não capturada:', err);
-  process.exit(1);
-});
+// process.on('uncaughtException', (err) => {
+//   console.error('Exceção não capturada:', err);
+//   process.exit(1);
+// });
 
-// 7. Inicialização do servidor com verificação
-const server = app.listen(porta, () => {
-  console.log(`Servidor rodando na porta ${porta}`);
-}).on('error', (err) => {
-  console.error('Erro ao iniciar:', err);
-});
+// // 7. Inicialização do servidor com verificação
+// const server = app.listen(porta, () => {
+//   console.log(`Servidor rodando na porta ${porta}`);
+// }).on('error', (err) => {
+//   console.error('Erro ao iniciar:', err);
+// });
 
-// 8. Encerramento elegante
-process.on('SIGTERM', () => {
-  server.close(() => console.log('Servidor encerrado'));
-});
+// // 8. Encerramento elegante
+// process.on('SIGTERM', () => {
+//   server.close(() => console.log('Servidor encerrado'));
+// });
