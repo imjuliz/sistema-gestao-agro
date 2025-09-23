@@ -104,7 +104,7 @@ export function CadastrarForm({
       </div>
       <div className="text-center text-sm">
         Já tem uma conta?{" "}
-        <a href="#" className="underline underline-offset-4">
+        <a href="/login" className="underline underline-offset-4">
           Entrar
         </a>
       </div>
