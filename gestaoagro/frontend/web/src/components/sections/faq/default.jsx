@@ -7,10 +7,10 @@ import { Section } from "@/components/ui/section";
 
 export default function FAQ(props) {
   const {
-    title = "Questions and Answers",
+    title = "Perguntas frequentes",
     items = [
       {
-        question: "Why building a great landing page is critical for your business?",
+        question: "O que é o sistema AgroTech?",
         answer: (
           <>
             <p className="text-muted-foreground mb-4 max-w-[640px] text-balance">
@@ -23,7 +23,7 @@ export default function FAQ(props) {
         ),
       },
       {
-        question: "Why use Launch UI instead of a no-code tool?",
+        question: "Quem pode usar o sistema?",
         answer: (
           <>
             <p className="text-muted-foreground mb-4 max-w-[600px]">
@@ -39,7 +39,7 @@ export default function FAQ(props) {
         ),
       },
       {
-        question: "How Launch UI is different from other components libraries and templates?",
+        question: "O sistema atende apenas grandes empresas?",
         answer: (
           <>
             <p className="text-muted-foreground mb-4 max-w-[580px]">
@@ -55,7 +55,7 @@ export default function FAQ(props) {
         ),
       },
       {
-        question: 'Why exactly does it mean that "The code is yours"?',
+        question: 'Como funciona a rastreabilidade?',
         answer: (
           <>
             <p className="text-muted-foreground mb-4 max-w-[580px]">
@@ -75,7 +75,7 @@ export default function FAQ(props) {
         ),
       },
       {
-        question: "Are Figma files included?",
+        question: "O sistema se adapta a diferentes culturas agrícolas e criações?",
         answer: (
           <p className="text-muted-foreground mb-4 max-w-[580px]">
             Yes! The complete Launch UI template is available for free on the{" "}
@@ -90,7 +90,7 @@ export default function FAQ(props) {
         ),
       },
       {
-        question: "Can I get a discount?",
+        question: "É possível acompanhar as finanças da empresa pelo sistema?",
         answer: (
           <p className="text-muted-foreground mb-4 max-w-[580px]">
             Actually, yes! I'm always actively looking for beta testers of new features. If you are interested in exchanging feedback for a discount, please contact me via{" "}

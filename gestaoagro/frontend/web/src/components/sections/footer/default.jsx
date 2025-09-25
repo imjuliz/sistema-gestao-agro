@@ -11,22 +11,22 @@ export default function FooterSection(props) {
     name = "Launch UI",
     columns = [
       {
-        title: "Product",
+        title: "Outros conteúdos relevantes",
         links: [
-          { text: "Changelog", href: siteConfig.url },
-          { text: "Documentation", href: siteConfig.url },
+          { text: "Sobre Nós", href: siteConfig.url },
+          // { text: "Documentation", href: siteConfig.url },
         ],
       },
+      // {
+      //   title: "Company",
+      //   links: [
+      //     { text: "About", href: siteConfig.url },
+      //     { text: "Careers", href: siteConfig.url },
+      //     { text: "Blog", href: siteConfig.url },
+      //   ],
+      // },
       {
-        title: "Company",
-        links: [
-          { text: "About", href: siteConfig.url },
-          { text: "Careers", href: siteConfig.url },
-          { text: "Blog", href: siteConfig.url },
-        ],
-      },
-      {
-        title: "Contact",
+        title: "Contatos",
         links: [
           { text: "Discord", href: siteConfig.url },
           { text: "Twitter", href: siteConfig.url },
@@ -34,10 +34,10 @@ export default function FooterSection(props) {
         ],
       },
     ],
-    copyright = "© 2025 Mikołaj Dobrucki. All rights reserved",
+    copyright = "© 2025 RuralTech. Todos os direitos reservados",
     policies = [
-      { text: "Privacy Policy", href: siteConfig.url },
-      { text: "Terms of Service", href: siteConfig.url },
+      { text: "Politica de Privacidade", href: siteConfig.url },
+      { text: "Termos de serviço", href: siteConfig.url },
     ],
     showModeToggle = true,
     className,

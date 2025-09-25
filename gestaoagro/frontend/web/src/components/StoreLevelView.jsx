@@ -41,15 +41,15 @@ export function StoreLevelView() {
     <div className="space-y-6">
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card>
+        <Card className="py-0 h-fit">
           <CardContent className="p-6">
             <div className="flex items-center">
               <div className="text-2xl font-medium">{totalItems}</div>
-              <div className="text-sm text-muted-foreground ml-2">Total Items</div>
+              <div className="text-sm text-muted-foreground ml-2">Total de Itens</div>
             </div>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="py-0 h-fit">
           <CardContent className="p-6">
             <div className="flex items-center">
               <div className="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
@@ -58,7 +58,7 @@ export function StoreLevelView() {
             </div>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="py-0 h-fit">
           <CardContent className="p-6">
             <div className="flex items-center">
               <div className="w-3 h-3 bg-yellow-500 rounded-full mr-2"></div>
@@ -67,7 +67,7 @@ export function StoreLevelView() {
             </div>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="py-0 h-fit">
           <CardContent className="p-6">
             <div className="flex items-center">
               <div className="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
@@ -81,40 +81,40 @@ export function StoreLevelView() {
       {/* Filters */}
       <Card>
         <CardHeader>
-          <CardTitle>Filters</CardTitle>
+          <CardTitle>Filtros</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-              <label className="block mb-2">Search Items</label>
+              <label className="block mb-2">Pesquisar Itens</label>
               <Input
-                placeholder="Search by name, SKU, or brand..."
+                placeholder="Pesquise por nome, SKU, ou categoria..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
             <div>
-              <label className="block mb-2">Store</label>
+              <label className="block mb-2">Lojas</label>
               <Select value={selectedStore} onValueChange={setSelectedStore}>
-                <SelectTrigger>
-                  <SelectValue placeholder="Select store" />
+                <SelectTrigger className={'w-full'}>
+                  <SelectValue placeholder="Selecionar loja" />
                 </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Stores</SelectItem>
+                <SelectContent className={'w-full'}>
+                  <SelectItem value="all">Todas as lojas</SelectItem>
                   {stores.map(store => (
-                    <SelectItem key={store} value={store}>{store}</SelectItem>
+                    <SelectItem key={store} value={store} className={'w-full'}>{store}</SelectItem>
                   ))}
                 </SelectContent>
               </Select>
             </div>
             <div>
-              <label className="block mb-2">Category</label>
-              <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                <SelectTrigger>
-                  <SelectValue placeholder="Select category" />
+              <label className="block mb-2">Categorias</label>
+              <Select value={selectedCategory} onValueChange={setSelectedCategory} className={'w-full'}>
+                <SelectTrigger className={'w-full'}>
+                  <SelectValue placeholder="Selecionar categoria" />
                 </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Categories</SelectItem>
+                <SelectContent className={'w-full'}>
+                  <SelectItem value="all">Todas as categorias</SelectItem>
                   {categories.map(category => (
                     <SelectItem key={category} value={category}>{category}</SelectItem>
                   ))}
@@ -128,9 +128,9 @@ export function StoreLevelView() {
       {/* Items Table */}
       <Card>
         <CardHeader>
-          <CardTitle>Store Inventory Matrix</CardTitle>
+          <CardTitle>Matriz de Estoque da Loja</CardTitle>
           <p className="text-sm text-muted-foreground">
-            Data driven by Display Setup configuration. Display stock quantities are configurable in the Setup tab.
+          Dados baseados na configuração de exposição. Quantidades de estoque de exibição são configuráveis na aba Configuração.
           </p>
         </CardHeader>
         <CardContent>
@@ -139,15 +139,15 @@ export function StoreLevelView() {
               <TableRow>
                 <TableHead>Status</TableHead>
                 <TableHead>Item</TableHead>
-                <TableHead>Brand</TableHead>
-                <TableHead>Category</TableHead>
-                <TableHead>Store</TableHead>
+                <TableHead>Marca</TableHead>
+                <TableHead>Categorias</TableHead>
+                <TableHead>Lojas</TableHead>
                 <TableHead>SKU</TableHead>
                 <TableHead>Current Stock</TableHead>
                 <TableHead>Display Stock</TableHead>
                 <TableHead>Min Stock</TableHead>
                 <TableHead>Difference</TableHead>
-                <TableHead>Price</TableHead>
+                <TableHead>Preço</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>

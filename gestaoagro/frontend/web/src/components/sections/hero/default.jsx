@@ -13,9 +13,9 @@ import { Section } from "@/components/ui/section";
 
 export default function Hero(props) {
   const {
-    title = "Give your big idea the design it deserves",
+    title = "Gestão e rastreabilidade inteligente para o agronegócio",
     description =
-      "Professionally designed blocks and templates built with React, Shadcn/ui and Tailwind that will help your product stand out.",
+      "Centralize suas fazendas e lojas em uma única plataforma, com controle total da produção, vendas e qualidade dos produtos.",
     mockup = (
       <Screenshot
         srcLight="/dashboard-light.png"

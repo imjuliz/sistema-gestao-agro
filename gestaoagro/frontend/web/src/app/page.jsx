@@ -8,14 +8,16 @@ import Logos from "../components/sections/logos/default";
 import Navbar from "../components/sections/navbar/default";
 import Pricing from "../components/sections/pricing/default";
 import Stats from "../components/sections/stats/default";
+import ThreeDMarqueeDemo from '@/components/sections/socialProof/default'
 
-export default function LandingPage(){
+export default function LandingPage() {
   return (
     <main className="min-h-screen w-full overflow-hidden bg-background text-foreground">
       <Navbar />
       <Hero />
       <Logos />
       <Items />
+      <ThreeDMarqueeDemo />
       <Stats />
       <Pricing />
       <FAQ />

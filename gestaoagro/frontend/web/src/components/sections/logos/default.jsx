@@ -10,30 +10,30 @@ import Logo from "@/components/ui/logo";
 import { Section } from "@/components/ui/section";
 
 export default function Logos({
-  title = "Built with industry-standard tools and best practices",
+  title = "Leve seu agronegócio para o próximo nível",
   badge = (
     <Badge variant="outline" className="border-brand/30 text-brand">
       Last updated: {siteConfig.stats.updated}
     </Badge>
   ),
   logos = [
-    <Logo key="figma" image={Figma} name="Figma" />,
-    <Logo key="react" image={ReactLogo} name="React" version="19.1.1" />,
-    <Logo key="typescript" image={TypeScript} name="TypeScript" version="5.9.2" />,
+    <Logo key="figma" image={Figma} name="Plataforma unificada" />,
+    <Logo key="react" image={ReactLogo} name="Acesso em qualquer dispositivo" version="19.1.1" />,
+    <Logo key="typescript" image={TypeScript} name="Integração com IoT" version="5.9.2" />,
     <Logo
       key="shadcn"
       image={ShadcnUi}
-      name="Shadcn/ui"
+      name="Segurança e hierarquia de acessos"
       version="2.10.0"
       badge="New"
     />,
-    <Logo
-      key="tailwind"
-      image={Tailwind}
-      name="Tailwind"
-      version="4.1"
-      badge="New"
-    />,
+    // <Logo
+    //   key="tailwind"
+    //   image={Tailwind}
+    //   name="Tailwind"
+    //   version="4.1"
+    //   badge="New"
+    // />,
   ],
   className,
 }) {
