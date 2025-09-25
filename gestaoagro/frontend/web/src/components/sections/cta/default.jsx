@@ -7,11 +7,11 @@ import { Section } from "@/components/ui/section";
 
 export default function CTA(props) {
   const {
-    title = "Start building",
+    title = "Começar agora",
     buttons = [
       {
         href: siteConfig.getStartedUrl,
-        text: "Get Started",
+        text: "Entrar",
         variant: "default",
       },
     ],

@@ -15,28 +15,28 @@ export default function App() {
       <div className="min-h-screen bg-background p-6">
         <div className="max-w-7xl mx-auto">
           <div className="mb-8">
-            <h1 className="text-3xl font-medium mb-2">Inventory Management Dashboard</h1>
-            <p className="text-muted-foreground">Home Appliances Retail Chain</p>
+            <h1 className="text-3xl font-medium mb-2">Painel de Gerenciamento de Estoque</h1>
+            <p className="text-muted-foreground">Rede de Varejo para Plantio</p>
           </div>
 
           {/* Legend */}
-          <Card className="mb-6">
+          <Card className="mb-6 ">
             <CardHeader>
-              <CardTitle>Inventory Status Legend</CardTitle>
+              <CardTitle>Legenda do Status do Estoque</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="flex gap-6 flex-wrap">
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-4 bg-green-500 rounded"></div>
-                  <span>Above Minimum (Stock &gt; Min + 5)</span>
+                  <span>Acima do Mínimo (Stock &gt; Min + 5)</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-4 bg-yellow-500 rounded"></div>
-                  <span>At/Near Minimum (Min - 5 to Min + 5)</span>
+                  <span>No Mínimo / Perto do Mínimo (Min - 5 to Min + 5)</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-4 bg-red-500 rounded"></div>
-                  <span>Below Minimum (Stock &lt; Min - 5)</span>
+                  <span>Abaixo do Mínimo (Stock &lt; Min - 5)</span>
                 </div>
               </div>
             </CardContent>
