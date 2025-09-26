@@ -1,5 +1,5 @@
 import { supabase } from "../config/supabase.js";
-import bcrypt from "bcryptjs";
+
 
 export async function cadastrarSe({ nome, email, senha }) {
   // hash da senha
@@ -27,6 +27,48 @@ export async function cadastrarSe({ nome, email, senha }) {
   if (error) throw error;
 
   return data[0]; // retorna o usuário criado
+}
+
+
+import { PrismaClient } from '@prisma/client'
+import bcrypt from 'bcryptjs'
+
+const prisma = new PrismaClient()
+
+// Criar usuário
+export async function cadastrarSe({ nome, email, senha }) {
+  // hash da senha
+  const salt = await bcrypt.genSalt(10)
+  const hash = await bcrypt.hash(senha, salt)
+  
+  // busca o perfil gerente_fazenda
+  const perfil = await prisma.perfil.findUnique({
+    where: { nome: 'gerente_fazenda' }
+  })
+
+  if (!perfil) {
+    throw new Error('Perfil gerente_fazenda não encontrado')
+  }
+  
+  // cria usuário
+  const usuario = await prisma.usuario.create({
+    data: {
+      nome,
+      email,
+      senha: hash,
+      perfilId: perfil.id
+    }
+  })
+  
+  return usuario
+}
+
+// Buscar usuário por email
+export async function getUserByEmail(email) {
+  const usuario = await prisma.usuario.findUnique({
+    where: { email }
+  })
+  return usuario // pode ser null se não existir
 }
 
 export async function getUserByEmail(email) {
