@@ -14,6 +14,7 @@ export default function FooterSection(props) {
         title: "Outros conteúdos relevantes",
         links: [
           { text: "Sobre Nós", href: siteConfig.url },
+          { text: "Blog", href: siteConfig.url },
           // { text: "Documentation", href: siteConfig.url },
         ],
       },
@@ -28,9 +29,9 @@ export default function FooterSection(props) {
       {
         title: "Contatos",
         links: [
-          { text: "Discord", href: siteConfig.url },
-          { text: "Twitter", href: siteConfig.url },
-          { text: "Github", href: siteConfig.links.github },
+          { text: "Email", href: siteConfig.url },
+          { text: "Telefone", href: siteConfig.url },
+          { text: "Instagram", href: siteConfig.links.github },
         ],
       },
     ],

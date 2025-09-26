@@ -1,10 +1,10 @@
 import { siteConfig } from "@/config/site";
 
-import Figma from "@/components/logos/figma";
-import ReactLogo from "@/components/logos/react";
-import ShadcnUi from "@/components/logos/shadcn-ui";
+import Plataforma from "@/components/logos/plataforma";
+import Acesso from "@/components/logos/acesso";
+import Seguranca from "@/components/logos/seguranca";
 import Tailwind from "@/components/logos/tailwind";
-import TypeScript from "@/components/logos/typescript";
+import Iot from "@/components/logos/iot";
 import { Badge } from "@/components/ui/badge";
 import Logo from "@/components/ui/logo";
 import { Section } from "@/components/ui/section";
@@ -17,16 +17,11 @@ export default function Logos({
     </Badge>
   ),
   logos = [
-    <Logo key="figma" image={Figma} name="Plataforma unificada" />,
-    <Logo key="react" image={ReactLogo} name="Acesso em qualquer dispositivo" version="19.1.1" />,
-    <Logo key="typescript" image={TypeScript} name="Integração com IoT" version="5.9.2" />,
-    <Logo
-      key="shadcn"
-      image={ShadcnUi}
-      name="Segurança e hierarquia de acessos"
-      version="2.10.0"
-      badge="New"
+    <Logo key="plataforma" image={Plataforma} name="Plataforma unificada" />,
+    <Logo key="acesso" image={Acesso} name="Acesso em qualquer dispositivo" />,
+    <Logo key="iot" image={Iot} name="Integração com IoT" badge="Novo"
     />,
+    <Logo key="seguranca" image={Seguranca} name="Segurança e hierarquia de acessos"/>,
     // <Logo
     //   key="tailwind"
     //   image={Tailwind}

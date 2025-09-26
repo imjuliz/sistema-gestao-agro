@@ -18,8 +18,8 @@ export default function LandingPage() {
       <Logos />
       <Items />
       <ThreeDMarqueeDemo />
-      <Stats />
-      <Pricing />
+      {/* <Stats />
+      <Pricing /> */}
       <FAQ />
       <CTA />
       <Footer />
