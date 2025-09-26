@@ -1,9 +1,69 @@
 import express from 'express';
+import prisma from '../prisma/client.js';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import { supabase } from "../config/supabase.js";
 import { cadastrarSeController } from '../controllers/UserController.js'
 
 const router = express.Router();
 
 router.post("/cadastrar", cadastrarSeController);
+
+router.post("/login", async (req, res) => {
+const { email, senha } = req.body;
+try {
+    // Validações basicas
+    const user = await prisma.usuarios.findUnique({
+        where: { email: email }
+    });
+        
+    if (!user) {
+        return res.status(401).json({ error: "Usuário ou senha incorretos" });
+    }
+
+    const domainEmailRegex = /^[\w.-]+@(gmail|hotmail|outlook|exemplo)\.com$/;
+    if (!domainEmailRegex.test(email)) {
+        return res.status(400).json({ mensagem: "O email é inválido. Por favor, use @gmail, @hotmail, @outlook ou @exemplo." });
+    }
+
+    const senhaValida = await bcrypt.compare(senha, user.senha);
+    if (!senhaValida) {
+        return res.status(401).json({ error: "Usuário ou senha incorretos" });
+    }
+
+    if (senha.length > 6) {
+        return res.status(400).json({ mensagem: "A senha deve ter no máximo 6 caracteres." });
+    }
+
+    // Verificar se o usuário está ativo
+    if (user.status === "inativo") {
+        return res.status(403).json({ mensagem: "Usuário inativo. Entre em contato com o administrador." });
+    }
+
+// Gerar o token JWT
+    const token = jwt.sign(
+    {
+        id: user.id,
+        email: user.email
+    },
+    JWT_SECRET,
+    {
+        expiresIn: "1h",
+    }
+    );
+  
+    // Retornar dados do usuário (sem a senha) e o token
+    const userData = {
+        id: user.id,
+        email: user.email
+    };
+
+        res.status(200).json({ message: "Usuário autenticado com sucesso", userData, token });
+    } catch (error) {
+        console.error("Erro ao buscar usuário:", error);
+        res.status(500).json({ error: "Erro ao buscar usuário" });
+    }
+});
 
 // router.post('/login', (req, res, next) => {
 //   try {
