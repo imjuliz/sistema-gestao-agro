@@ -1,5 +1,3 @@
-
-
 //uma página de termos de uso com indice para rapida navegação
 export default function TermosDeUso() {
     return (
