@@ -62,7 +62,9 @@ export default function RootLayout({ children }) {
         <html lang="pt-br" style={{ colorScheme: "dark" }} className="dark">
             {/* <body className={`${inter.className} bg-background antialiased`}> */}
             <body className={` bg-background antialiased`}>
-            <ThemeProvider>{children}</ThemeProvider>
+            <ThemeProvider>
+                {children}
+                </ThemeProvider>
             </body>
         </html>
     );

@@ -28,3 +28,4 @@ CREATE TABLE IF NOT EXISTS usuarios (
     atualizado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+select * from usuarios;

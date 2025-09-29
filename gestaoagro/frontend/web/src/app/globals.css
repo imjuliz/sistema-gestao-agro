@@ -260,8 +260,6 @@
   }
 }
 
-
-
 /* Marquee 2 rows (add to globals.css) */
 .marquee {
   position: relative;
@@ -324,12 +322,6 @@
 @media (max-width: 640px) {
   .sp-card { min-width: 16rem; padding: 0.75rem; }
 }
-
-
-
-
-
-
 
 /* :root {
   --background: oklch(1 0 0);
@@ -479,3 +471,12 @@
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);
 } */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
