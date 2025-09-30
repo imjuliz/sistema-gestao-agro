@@ -1,5 +1,6 @@
 import { supabase } from "../config/supabase.js";
 
+
 export async function cadastrarSe({ nome, email, senha }) {
   // hash da senha
   const salt = await bcrypt.genSalt(10);
@@ -79,20 +80,4 @@ export async function getUserByEmail(email) {
 
   if (error) throw error;
   return data; // pode ser null se não existir
-}
-
-//Deletar usuário
-export async function deletarUsuario(id) {
-  try {
-    const usuario = await prisma.usuario.delete({
-      where: { id }
-    })
-
-    return usuario // retorna os dados do usuário deletado
-  } catch (error) {
-    if (error.code === 'P2025') {
-      throw new Error('Usuário não encontrado')
-    }
-    throw error
-  }
 }

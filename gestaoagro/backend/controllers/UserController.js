@@ -1,4 +1,4 @@
-import { cadastrarSe, getUserByEmail, deletarUsuario } from "../models/User.js";
+import { cadastrarSe, getUserByEmail } from "../models/User.js";
 
 export async function cadastrarSeController(req, res) {
   try {
@@ -21,20 +21,5 @@ export async function cadastrarSeController(req, res) {
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: err.message });
-  }
-}
-export async function deleteUsuarioController(req, res) {
-  const { id } = req.params;
-  try {
-    const usuario = await deletarUsuario(Number(id));
-    return res.status(200).json({
-      message: "Usuário deletado com sucesso", usuario
-    });
-  } catch (error) {
-    if (error.message === "Usuário não encontrado") {
-      return res.status(404).json({ error: error.message });
-    }
-    console.error(error);
-    return res.status(500).json({ error: "Erro ao deletar usuário" });
   }
 }
