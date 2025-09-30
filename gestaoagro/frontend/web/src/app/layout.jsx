@@ -56,14 +56,29 @@ import { ThemeProvider } from "@/contexts/theme-provider";
 //     },
 //   };
 
-export default function RootLayout({ children }) {
+// export default function RootLayout({ children }) {
 
+//     return (
+//         <html lang="pt-br" style={{ colorScheme: "dark" }} className="dark">
+//             {/* <body className={`${inter.className} bg-background antialiased`}> */}
+//             <body className={` bg-background antialiased`}>
+//             <ThemeProvider>
+//                 {children}
+//                 </ThemeProvider>
+//             </body>
+//         </html>
+//     );
+// }
+export default function RootLayout({ children }) {
     return (
-        <html lang="pt-br" style={{ colorScheme: "dark" }} className="dark">
-            {/* <body className={`${inter.className} bg-background antialiased`}> */}
-            <body className={` bg-background antialiased`}>
-            <ThemeProvider>
-                {children}
+        <html lang="pt-br" suppressHydrationWarning>
+            <head>
+                <title>{siteConfig.name}</title>
+                <meta name="description" content={siteConfig.description} />
+            </head>
+            <body className="bg-background antialiased">
+                <ThemeProvider>
+                    {children}
                 </ThemeProvider>
             </body>
         </html>
