@@ -1,5 +1,9 @@
 import { supabase } from "../config/supabase.js";
 
+import { PrismaClient } from '@prisma/client'
+import bcrypt from 'bcryptjs'
+
+const prisma = new PrismaClient()
 
 export async function cadastrarSe({ nome, email, senha }) {
   // hash da senha
@@ -30,10 +34,6 @@ export async function cadastrarSe({ nome, email, senha }) {
 }
 
 
-import { PrismaClient } from '@prisma/client'
-import bcrypt from 'bcryptjs'
-
-const prisma = new PrismaClient()
 
 // Criar usuário
 export async function cadastrarSe({ nome, email, senha }) {
@@ -80,4 +80,16 @@ export async function getUserByEmail(email) {
 
   if (error) throw error;
   return data; // pode ser null se não existir
+}
+
+export async function deletarUsuario(userId) {
+  const { data, error } = await supabase.auth.admin.deleteUser(userId)
+
+  if (error) {
+    console.error('Erro ao deletar usuário:', error.message)
+    return { sucesso: false, erro: error.message }
+  }
+
+  console.log('Usuário deletado com sucesso:', data)
+  return { sucesso: true }
 }
