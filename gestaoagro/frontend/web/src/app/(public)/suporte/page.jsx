@@ -1,70 +1,86 @@
 //uma página de termos de uso com indice para rapida navegação
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@/components/ui/accordion"
+
+import { Button } from "@/components/ui/button"
+import { Textarea } from "@/components/ui/textarea"
+
+
 export default function Suporte() {
     return (
         <>
             <main className='w-full open-sans text-lg flex  justify-center pt-[150px] pb-[150px] bg-stone-950 '>
                 <div className="flex flex-col gap-5">
                     <h1 className='archivo-black-regular text-5xl'>Suporte</h1>
+                    <div className=" w-240 flex flex-col">
+                        <h2 className="text-2xl font-bold ">Perguntas Frequentes</h2>
+                        <Accordion
+                            type="single"
+                            collapsible
+                            className="w-full "
+                            defaultValue="item-1"
+                        >
+                            <AccordionItem value="item-1">
+                                <AccordionTrigger className="text-lg">Como faço para cadastrar minha fazenda no sistema?</AccordionTrigger>
+                                <AccordionContent className="flex flex-col gap-4 text-balance text-lg">
+                                    <p>
+                                        Você pode cadastrar sua fazenda na seção de cadastro, preenchendo os dados solicitados sobre a propriedade e o tipo de atividade agropecuária.
+                                    </p>
 
-                    
+                                </AccordionContent>
+                            </AccordionItem>
+                            <AccordionItem value="item-2">
+                                <AccordionTrigger className="text-lg">Como acessar os relatórios de monitoramento?</AccordionTrigger>
+                                <AccordionContent className="flex flex-col gap-4 text-balance text-lg">
+                                    <p>
+                                        Os relatórios ficam disponíveis na área de “Relatórios” do painel, onde você pode filtrar por data, local e tipo de dado.
+                                    </p>
 
+                                </AccordionContent>
+                            </AccordionItem>
+                            <AccordionItem value="item-3">
+                                <AccordionTrigger className="text-lg">O que fazer em caso de perda de senha?</AccordionTrigger>
+                                <AccordionContent className="flex flex-col gap-4 text-balance text-lg">
+                                    <p>
+                                        Clique no link “Esqueci minha senha” na tela de login para receber um email com instruções para redefinição.
+                                    </p>
 
-                        <div id="accordion-open" data-accordion="open">
-                            <h2 id="accordion-open-heading-1">
-                                <button type="button" className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-open-body-1" aria-expanded="true" aria-controls="accordion-open-body-1">
-                                    <span className="flex items-center"><svg className="w-5 h-5 me-2 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd"></path></svg> What is Flowbite?</span>
-                                    <svg data-accordion-icon className="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5 5 1 1 5" />
-                                    </svg>
-                                </button>
-                            </h2>
-                            <div id="accordion-open-body-1" className="hidden" aria-labelledby="accordion-open-heading-1">
-                                <div className="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-                                    <p className="mb-2 text-gray-500 dark:text-gray-400">Flowbite is an open-source library of interactive components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars, and more.</p>
-                                    <p className="text-gray-500 dark:text-gray-400">Check out this guide to learn how to <a href="/docs/getting-started/introduction/" className="text-blue-600 dark:text-blue-500 hover:underline">get started</a> and start developing websites even faster with components on top of Tailwind CSS.</p>
-                                </div>
-                            </div>
-                            <h2 id="accordion-open-heading-2">
-                                <button type="button" className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-open-body-2" aria-expanded="false" aria-controls="accordion-open-body-2">
-                                    <span className="flex items-center"><svg className="w-5 h-5 me-2 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd"></path></svg>Is there a Figma file available?</span>
-                                    <svg data-accordion-icon className="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5 5 1 1 5" />clipRule
-                                    </svg>
-                                </button>
-                            </h2>
-                            <div id="accordion-open-body-2" className="hidden" aria-labelledby="accordion-open-heading-2">
-                                <div className="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
-                                    <p className="mb-2 text-gray-500 dark:text-gray-400">Flowbite is first conceptualized and designed using the Figma software so everything you see in the library has a design equivalent in our Figma file.</p>
-                                    <p className="text-gray-500 dark:text-gray-400">Check out the <a href="https://flowbite.com/figma/" className="text-blue-600 dark:text-blue-500 hover:underline">Figma design system</a> based on the utility classes from Tailwind CSS and components from Flowbite.</p>
-                                </div>
-                            </div>
-                            <h2 id="accordion-open-heading-3">
-                                <button type="button" className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-open-body-3" aria-expanded="false" aria-controls="accordion-open-body-3">
-                                    <span className="flex items-center"><svg className="w-5 h-5 me-2 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd"></path></svg> What are the differences between Flowbite and Tailwind UI?</span>
-                                    <svg data-accordion-icon className="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5 5 1 1 5" />
-                                    </svg>
-                                </button>
-                            </h2>
-                            <div id="accordion-open-body-3" className="hidden" aria-labelledby="accordion-open-heading-3">
-                                <div className="p-5 border border-t-0 border-gray-200 dark:border-gray-700">
-                                    <p className="mb-2 text-gray-500 dark:text-gray-400">The main difference is that the core components from Flowbite are open source under the MIT license, whereas Tailwind UI is a paid product. Another difference is that Flowbite relies on smaller and standalone components, whereas Tailwind UI offers sections of pages.</p>
-                                    <p className="mb-2 text-gray-500 dark:text-gray-400">However, we actually recommend using both Flowbite, Flowbite Pro, and even Tailwind UI as there is no technical reason stopping you from using the best of two worlds.</p>
-                                    <p className="mb-2 text-gray-500 dark:text-gray-400">Learn more about these technologies:</p>
-                                    <ul className="ps-5 text-gray-500 list-disc dark:text-gray-400">
-                                        <li><a href="https://flowbite.com/pro/" className="text-blue-600 dark:text-blue-500 hover:underline">Flowbite Pro</a></li>
-                                        <li><a href="https://tailwindui.com/" rel="nofollow" className="text-blue-600 dark:text-blue-500 hover:underline">Tailwind UI</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+                                </AccordionContent>
+                            </AccordionItem>
+                            <AccordionItem value="item-4">
+                                <AccordionTrigger className="text-lg">É possível acessar o sistema via celular?</AccordionTrigger>
+                                <AccordionContent className="flex flex-col gap-4 text-balance text-lg">
+                                    <p>
+                                        Sim, nosso sistema é responsivo e pode ser acessado por navegadores móveis ou aplicativos dedicados.
+                                    </p>
+
+                                </AccordionContent>
+                            </AccordionItem>
+                            <AccordionItem value="item-5">
+                                <AccordionTrigger className="text-lg">É possível acompanhar as vendas e o estoque das unidades comerciais?</AccordionTrigger>
+                                <AccordionContent className="flex flex-col gap-4 text-balance text-lg">
+                                    <p>
+                                        Sim, o sistema registra entradas, saídas, preços, despesas e gera relatórios detalhados para ajudar na gestão financeira das unidades de venda.
+                                    </p>
+
+                                </AccordionContent>
+                            </AccordionItem>
+                        </Accordion>
+                    </div>
+                    <div className=" ">
+                        <h2 className="text-2xl font-bold pb-5">Envie sua dúvida</h2>
+                        <div className="grid w-full gap-5">
+                            <Textarea placeholder="Escreva sua dúvida aqui" className="h-100 !text-lg" />
+                            <Button className="!text-lg">Enviar</Button>
                         </div>
-
-
-                    
-
-
+                    </div>
 
                 </div>
+
 
             </main>
         </>
