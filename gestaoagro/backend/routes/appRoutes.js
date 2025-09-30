@@ -3,10 +3,10 @@ const router = express.Router();
 
 // middlewares -----------------------------------------------------------------------------------------
 import { garantirAutenticado } from '../middlewares/authMiddleware.js';
-
+import { translateText } from '../controllers/TranslateController.js'
 
 // controllers --------------------------------------------------------------------
-
+router.get('/translate', translateText)
 // rotas usadas para ______ --------------------------------------------------------------------------------
 // rotas usadas para _____ ---------------------------------------------------------------------------------
 
