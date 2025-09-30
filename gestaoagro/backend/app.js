@@ -55,3 +55,5 @@ app.get('/health', (req, res) => res.status(200).json({ status: 'online' }));
 app.use('/uploads', express.static(path.resolve('uploads')));
 
 export default app;  // aqui exporta o app puro, sem serverless
+
+//final do codigo
