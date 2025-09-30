@@ -26,7 +26,7 @@ export function LoginForm({
             
           </div>
           <Input id="password" type="password" required />
-        </div><a href="#" className="ml-auto text-sm underline-offset-4 hover:underline">
+        </div><a href="/esqueciSenha" className="ml-auto text-sm underline-offset-4 hover:underline">
               Esqueci a senha
             </a>
         <Button type="submit" className="w-full">
