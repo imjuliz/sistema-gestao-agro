@@ -13,10 +13,10 @@ import { Textarea } from "@/components/ui/textarea"
 export default function Suporte() {
     return (
         <>
-            <main className='w-full open-sans text-lg flex  justify-center pt-[150px] pb-[150px] bg-stone-950 '>
-                <div className="flex flex-col gap-5">
+            <main className=' open-sans text-lg flex  justify-center pt-[150px] pb-[150px] bg-stone-950 '>
+                <div className="flex flex-col gap-5 lg:w-240 md:w-150 sm:w-100 w-100">
                     <h1 className='archivo-black-regular text-5xl'>Suporte</h1>
-                    <div className=" w-240 flex flex-col">
+                    <div className="  flex flex-col">
                         <h2 className="text-2xl font-bold ">Perguntas Frequentes</h2>
                         <Accordion
                             type="single"

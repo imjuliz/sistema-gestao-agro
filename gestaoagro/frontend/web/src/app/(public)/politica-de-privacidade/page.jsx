@@ -3,12 +3,12 @@ export default function PoliticaDePrivacidade() {
     return (
         <>
             <main className='w-full open-sans text-lg flex  justify-center pt-[150px] pb-[150px] bg-stone-950 '>
-                <div className="flex flex-col gap-5">
+                <div className="flex flex-col gap-5 w-100 lg:w-240 md:w-160">
                     <h1 className='archivo-black-regular text-5xl'>Política de Privacidade</h1>
                     <p>Última atualização: 30 de setembro de 2025</p>
-                    <div className=" flex gap-10">
+                    <div className="justify-center  flex gap-10">
                         
-                        <div className="conteudo w-180 flex flex-col gap-2">
+                        <div className="conteudo  flex flex-col gap-2">
 
                             <p>Na RuralTech, sua privacidade e a segurança dos seus dados são prioridades absolutas. Esta Política de Privacidade explica detalhadamente como coletamos, utilizamos, armazenamos e protegemos as informações pessoais e operacionais dos usuários do nosso Sistema de monitoramento agropecuário.
                                 Nosso compromisso é garantir total transparência sobre o tratamento dos seus dados, em conformidade com a Lei Geral de Proteção de Dados (LGPD) e outras normas aplicáveis, para que você possa usar nosso Sistema com confiança e tranquilidade.
@@ -116,7 +116,7 @@ export default function PoliticaDePrivacidade() {
 
                         </div>
                         
-                        <div className="indice w-60 sticky top-4 self-start">
+                        <div className="indice hidden md:block md:sticky  md:top-4 md:self-start">
                             <h2 className="text-xl pb-2"><b>Índice</b></h2>
                             <ul className="">
                                 <li className="pb-2"><a href="#infos">1. Informações Coletadas</a></li>

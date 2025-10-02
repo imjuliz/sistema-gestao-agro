@@ -3,7 +3,7 @@ export default function TermosDeUso() {
     return (
         <>
             <main className='w-full open-sans text-lg flex  justify-center pt-[150px] pb-[150px] bg-stone-950 '>
-                <div className="flex flex-col gap-5">
+                <div className="flex flex-col gap-5 w-100 lg:w-240 md:w-160">
                     <h1 className='archivo-black-regular text-5xl'>Termos de Serviço</h1>
                     <p>Última atualização: 25 de setembro de 2025</p>
 
@@ -70,7 +70,7 @@ export default function TermosDeUso() {
                             </ul>
 
                         </div>
-                        <div className="indice w-60 sticky top-4 self-start">
+                        <div className="indice hidden md:block md:sticky  md:top-4 md:self-start">
                             <h2 className="text-xl pb-2"><b>Índice</b></h2>
                             <ul className="">
                                 <li className="pb-2"><a href="#termos">1. Aceitação de Termos</a></li>
