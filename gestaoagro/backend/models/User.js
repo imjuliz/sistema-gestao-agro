@@ -1,9 +1,6 @@
 import { supabase } from "../config/supabase.js";
-
-import { PrismaClient } from '@prisma/client'
 import bcrypt from 'bcryptjs'
-
-const prisma = new PrismaClient()
+import prisma from '../prisma/client.js'
 
 export async function cadastrarSe({ nome, email, senha }) {
   // hash da senha
